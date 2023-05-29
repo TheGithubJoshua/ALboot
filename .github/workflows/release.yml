@@ -36,13 +36,12 @@ jobs:
           draft: true
           files: work/*.iso
           
-
-
-      - name: Upload To Github Release
+      - name: Release
         uses: xresloader/upload-to-github-release@v1
-env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-with:
-    file: "*.iso"
-    tags: true
-    draft: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          draft: true
+          files: work/*.iso
+          
+ 
