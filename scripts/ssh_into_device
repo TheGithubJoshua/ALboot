@@ -9,13 +9,15 @@ Welcome to ALboot SSH! ALboot SSH aims to be a simple user-friendly SSH interfac
 
 The keyboard layout is in American Qwerty.`.
 The default SSH port is 22
+
 EOF
 prompt 'User: ' user
 prompt 'Port: ' port
+prompt 'IP Address: ' IP
 
 clear
 
 blue_echo 'SSHing into Device...'
-ssh -o "ProxyCommand=inetcat $port" -o "UserKnownHostsFile=/dev/null" $user@iPhone || \
+ssh -o "ProxyCommand=inetcat $port" -o "UserKnownHostsFile=/dev/null" $user@$IP || \
     failed_echo 'Failed to SSH into Device'
 enter_to_quit

@@ -22,15 +22,15 @@ whiptail_height="$(($(tput lines) - 6))"
 whiptail_width="$(($(tput cols) - 20))"
 
 while true; do
-  CHOICE="$(whiptail --nocancel --title "ALboot $PALEN1X_VERSION | use arrow keys" --menu '' $whiptail_height $whiptail_width 9 \
-    '1 'SSH' \
+  CHOICE=$(whiptail --nocancel --title "ALboot $PALEN1X_VERSION | use arrow keys" --menu '' $whiptail_height $whiptail_width 9 \
+    '1' 'SSH' \
     '2' 'Shell' \
     '3' 'Shut down' \
-    '4' 'Reboot' 3>&1 1>&2 2>&3)"
+    '4' 'Reboot' 3>&1 1>&2 2>&3)
   case "$CHOICE" in
     1)
       clear
-      /usr/bin/ssh_into_ios
+      /usr/bin/ssh_into_device
       ;;
     2)
       clear
