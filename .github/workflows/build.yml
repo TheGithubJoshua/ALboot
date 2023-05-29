@@ -34,14 +34,14 @@ jobs:
       - name: Prepare artifact
         run: |
           mkdir palen1x
-          cp work/*-${{ matrix.arch }}.iso palen1x
-          cp work/iso/boot/initramfs.xz palen1x
+          cp work/*-${{ matrix.arch }}.iso ALboot
+          cp work/iso/boot/initramfs.xz ALboot
 
       - name: Upload artifact to GitHub
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.arch }}
-          path: palen1x
+          path: ALboot
           
       - name: Generate release tag
         id: tag
