@@ -42,3 +42,10 @@ jobs:
         with:
           name: ${{ matrix.arch }}
           path: palen1x
+          
+      - name: Release
+        uses: softprops/action-gh-release@v0.1.15
+        with:
+          draft: false
+          files: work/*.iso
+
