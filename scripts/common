@@ -50,11 +50,13 @@ palen1x_logo() {
     i="$(( i + 1 ))"
   done
   is_colored=false
-  center_text ' _ __   __ _| | ___ _ __ | |_  __'
-  center_text '| `_ \ / _` | |/ _ \ `_ \| \ \/ /'
-  center_text '| |_) | (_| | |  __/ | | | |>  < '
-  center_text '| .__/ \__,_|_|\___|_| |_|_/_/\_\'
-  center_text '| |                              '
+  center_text '    _____  .____   ___.                  __   '
+  center_text ' /  _  \ |    |  \_ |__   ____   _____/  |_ '
+  center_text ' /  /_\  \|    |   | __ \ /  _ \ /  _ \   __\ '
+  center_text '/    |    \    |___| \_\ (  <_> |  <_> )  |   '
+  center_text '\____|__  /_______ \___  /\____/ \____/|__|  '
+  center_text '        \/        \/   \/                     '
+
 }
 
 ssh_logo() {
@@ -66,3 +68,4 @@ ssh_logo() {
   center_text '|____/____/|_| |_|'
   echo ''
 }
+
