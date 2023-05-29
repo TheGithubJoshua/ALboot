@@ -35,15 +35,14 @@ jobs:
         with:
           draft: true
           files: work/*.iso
+          
 
-      - name: Upload artifact to cdn.nickchan.lol
-        uses: wangyucode/sftp-upload-action@v1.4.8
-        with:
-          host: ${{ secrets.NICKCHAN_FTP_HOST }}
-          port: ${{ secrets.NICKCHAN_FTP_PORT }}
-          username: palera1n
-          privateKey: ${{ secrets.NICKCHAN_FTP_KEY }}
-          forceUpload: true
-          dryRun: false
-          localDir: 'work/'
-          remoteDir: '/palera1n/artifacts/palen1x'
+
+      - name: Upload To Github Release
+        uses: xresloader/upload-to-github-release@v1
+env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+with:
+    file: "*.iso"
+    tags: true
+    draft: true
