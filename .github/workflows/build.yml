@@ -34,18 +34,30 @@ jobs:
       - name: Prepare artifact
         run: |
           mkdir palen1x
-          cp work/*-${{ matrix.arch }}.iso palen1x
-          cp work/iso/boot/initramfs.xz palen1x
+          cp work/*-${{ matrix.arch }}.iso ALboot
+          cp work/iso/boot/initramfs.xz ALboot
 
       - name: Upload artifact to GitHub
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.arch }}
-          path: palen1x
+          path: ALboot
+          
+      - name: Generate release tag
+        id: tag
+        run: |
+         echo "::set-output name=release_tag::UserBuild_$(date +"%Y.%m.%d_%H-%M")"
           
       - name: Release
         uses: softprops/action-gh-release@v0.1.15
         with:
+          tag_name: ${{ steps.tag.outputs.release_tag }}
           draft: false
           files: work/*.iso
+         
+    permissions:
+      contents: write
+          
+            
+
 
