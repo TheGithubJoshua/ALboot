@@ -6,6 +6,10 @@ YELLOW="$(tput setaf 3)"
 PURPLE="$(tput setaf 5)"
 NORMAL="$(tput sgr0)"
 
+# Set other variables
+randomstring=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 4 | head -n 1)
+
+
 blue_echo() {
   echo "${BLUE}${1}${NORMAL}"
 }
@@ -68,4 +72,10 @@ ssh_logo() {
   center_text '|____/____/|_| |_|'
   echo ''
 }
+
+rnd_mkdir_cd() {
+  mkdir -p $randomstring
+  cd $randomstring
+}
+
 
