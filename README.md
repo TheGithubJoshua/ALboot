@@ -1,5 +1,6 @@
 # ALboot
-## A simple light-weight bootable alpine-based linux distro with a text gui 
+## A simple light-weight bootable alpine-based linux distro with a text gui
+(Not Really A Distro Just A Bunch Of Shell Scripts.)
 
 ### Uses:
 ##### System Rescue
