@@ -74,8 +74,10 @@ ssh_logo() {
 }
 
 rnd_mkdir_cd() {
+  clear
   mkdir -p $randomstring
   cd $randomstring
+  /bin/bash -i && exit
 }
 
 
